@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form onsubmit="return validateForm(this)">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br>
+  <label for="options">Choose your preferred candidates (min 7, max 14):</label>
+  <select id="options" name="options[]" multiple required>
+    <option value="candidate1">Candidate 1</option>
+    <option value="candidate2">Candidate 2</option>
+    </select><br>
+  <button type="submit">Submit Ballot</button>
+</form>
+
+<script>
+function validateForm(form) {
+  // Validate name and email (adapt as needed)
+  // ... your validation logic here ...
+
+  // Get the selected options
+  var selectedOptions = form.options.selectedOptions;
+
+  // Check if number of selections is between 7 and 14
+  if (selectedOptions.length < 7 || selectedOptions.length > 14) {
+    alert("Please select between 7 and 14 candidates.");
+    return false;
+  }
+
+  return true;
+}
+</script>
+
+</body>
+</html>
+
